@@ -8,9 +8,6 @@ clear
 #Change pkg to latest
 sed -i .conf 's/quarterly/latest/g' /etc/pkg/FreeBSD.conf
 
-#install required packages
-pkg  install -y curl openjdk8-jre
-
 # The latest version of NxFilter:
 NXFILTER_VERSION=$1
 if [ -z "$NXFILTER_VERSION" ]; then
