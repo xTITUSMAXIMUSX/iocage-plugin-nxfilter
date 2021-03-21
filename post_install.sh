@@ -5,9 +5,6 @@
 
 clear
 
-#Change pkg to latest
-sed -i .conf 's/quarterly/latest/g' /etc/pkg/FreeBSD.conf
-
 # The latest version of NxFilter:
 NXFILTER_VERSION=$1
 if [ -z "$NXFILTER_VERSION" ]; then
