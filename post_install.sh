@@ -8,7 +8,7 @@ clear
 # The latest version of NxFilter:
 NXFILTER_VERSION=$1
 if [ -z "$NXFILTER_VERSION" ]; then
-  echo "NxFilter version not supplied, checking nxfilter.org for the latest version..."
+  echo "Checking nxfilter.org for the latest version"
   NXFILTER_VERSION=$(
     curl -sL 'https://nxfilter.org/p3/download' -H 'X-Requested-With: XMLHttpRequest' | grep -Eo "(http|https)://pub.nxfilter.org/nxfilter-[a-zA-Z0-9./?=_-]*.zip" | grep -Eo "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+" 2>/dev/null
   )
