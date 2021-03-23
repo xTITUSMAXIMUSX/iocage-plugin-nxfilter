@@ -46,12 +46,11 @@ nxfilter_stop()
 
 nxfilter_status()
 { 
-  verify_nxfilter_pid
-  if [ -n "${pid}" ]; then
-    echo "$name is running as ${pid}."
-  else
-    echo "$name is not running."
-  fi
+        if [ -e "${pidfile}" ]; then
+                echo "${name} is running as pid `cat ${pidfile}`"
+        else
+                echo "${name} is not running"
+        fi
 }
 
 load_rc_config ${name}
