@@ -10,6 +10,7 @@ desc="NxFilter DNS filter."
 rcvar="nxfilter_enable"
 start_cmd="nxfilter_start"
 stop_cmd="nxfilter_stop"
+status_cmd="nxfilter_status"
 
 pidfile="/var/run/${name}.pid"
 
