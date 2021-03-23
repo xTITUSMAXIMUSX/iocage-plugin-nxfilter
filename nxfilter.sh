@@ -43,5 +43,15 @@ nxfilter_stop()
   fi
 }
 
+nxfilter_status()
+{ 
+  verify_nxfilter_pid
+  if [ -n "${pid}" ]; then
+    echo "$name is running as ${pid}."
+  else
+    echo "$name is not running."
+  fi
+}
+
 load_rc_config ${name}
 run_rc_command "$1"
