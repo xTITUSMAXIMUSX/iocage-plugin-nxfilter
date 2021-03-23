@@ -8,6 +8,7 @@
 name="nxfilter"
 desc="NxFilter DNS filter."
 rcvar="nxfilter_enable"
+command="/usr/sbin/daemon"
 start_cmd="nxfilter_start"
 stop_cmd="nxfilter_stop"
 status_cmd="nxfilter_status"
@@ -47,7 +48,7 @@ nxfilter_stop()
 nxfilter_status()
 { 
         if [ -e "${pidfile}" ]; then
-                echo "${name} is running as pid `cat ${pidfile}`"
+                echo "${name} is running as pid ${pidfile}"
         else
                 echo "${name} is not running"
         fi
