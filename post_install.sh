@@ -56,9 +56,7 @@ echo " ok"
 chmod +x /etc/rc.d/nxfilter.sh
 chmod +x /usr/local/nxfilter/bin/*.sh
 
-# Add the startup variable to rc.conf.local.
-# Eventually, this step will need to be folded into pfSense, which manages the main rc.conf.
-# In the following comparison, we expect the 'or' operator to short-circuit, to make sure the file exists and avoid grep throwing an error.
+#Enable service of not already
 if [ ! -f /etc/rc.conf ] || [ $(grep -c nxfilter_enable /etc/rc.conf) -eq 0 ]; then
   echo -n "Enabling the NxFilter service..."
   sysrc nxfilter_enable=YES
