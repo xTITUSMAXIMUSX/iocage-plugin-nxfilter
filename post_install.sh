@@ -16,13 +16,13 @@ fi
 NXFILTER_SOFTWARE_URI="http://pub.nxfilter.org/nxfilter-${NXFILTER_VERSION}.zip"
 
 # service script
-SERVICE_SCRIPT_URI="https://raw.githubusercontent.com/xTITUSMAXIMUSX/iocage-plugin-nxfilter/master/nxfilter.sh"
+SERVICE_SCRIPT_URI="https://raw.githubusercontent.com/xTITUSMAXIMUSX/iocage-plugin-nxfilter/master/nxfilter"
 
 
 # Stop NxFilter if it's already running
-if [ -f /usr/local/etc/rc.d/nxfilter.sh ]; then
+if [ -f /usr/local/etc/rc.d/nxfilter ]; then
   echo -n "Stopping the NxFilter service..."
-  /usr/sbin/service nxfilter.sh stop
+  /usr/sbin/service nxfilter stop
   echo " ok"
 fi
 
