@@ -28,25 +28,19 @@ nxfilter_start()
 nxfilter_stop()
 {
   if [ -f $pidfile ]; then
-    echo -n "Stopping NxFilter..."
 
     /usr/local/nxfilter/bin/shutdown.sh &
-
-    while [ `pgrep -F $pidfile` ]; do
-      echo -n "."
-      sleep 1
-    done
-
     rm $pidfile
+    sleep 1
+    echo "Server stopped."
 
-    echo "OK stopped";
   else
     echo "NxFilter not running. No PID file found."
   fi
 }
 
 nxfilter_status()
-{ 
+{
         if [ -e "${pidfile}" ]; then
                 echo "${name} is running as pid ${pidfile}"
         else
