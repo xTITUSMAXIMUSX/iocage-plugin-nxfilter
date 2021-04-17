@@ -49,11 +49,11 @@ echo " ok"
 
 # Fetch the service script from github:
 echo -n "Downloading service script..."
-/usr/bin/fetch -o /etc/rc.d/nxfilter.sh ${SERVICE_SCRIPT_URI}
+/usr/bin/fetch -o /etc/rc.d/nxfilter ${SERVICE_SCRIPT_URI}
 echo " ok"
 
 # add execute permissions
-chmod +x /etc/rc.d/nxfilter.sh
+chmod +x /etc/rc.d/nxfilter
 chmod +x /usr/local/nxfilter/bin/*.sh
 
 #Enable service of not already
@@ -64,5 +64,5 @@ if [ ! -f /etc/rc.conf ] || [ $(grep -c nxfilter_enable /etc/rc.conf) -eq 0 ]; t
 fi
 
 echo -n "Starting the NxFilter service..."
-/usr/sbin/service nxfilter.sh start
+/usr/sbin/service nxfilter start
 echo "All done!"
