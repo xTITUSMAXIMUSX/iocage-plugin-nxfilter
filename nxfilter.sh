@@ -15,18 +15,15 @@ status_cmd="nxfilter_status"
 
 pidfile="/var/run/${name}.pid"
 
-
-nxfilter_start()
-{
+nxfilter_start() {
   if checkyesno ${rcvar}; then
     echo "Starting NxFilter..."
     /usr/local/nxfilter/bin/startup.sh -d &
-    echo `ps | grep 'nxd.jar' | grep -v grep | awk '{ print $1 }'` > $pidfile
+    echo $(ps | grep 'nxd.jar' | grep -v grep | awk '{ print $1 }') >$pidfile
   fi
 }
 
-nxfilter_stop()
-{
+nxfilter_stop() {
   if [ -f $pidfile ]; then
 
     /usr/local/nxfilter/bin/shutdown.sh &
@@ -39,13 +36,12 @@ nxfilter_stop()
   fi
 }
 
-nxfilter_status()
-{
-        if [ -e "${pidfile}" ]; then
-                echo "${name} is running as pid ${pidfile}"
-        else
-                echo "${name} is not running"
-        fi
+nxfilter_status() {
+  if [ -e "${pidfile}" ]; then
+    echo "${name} is running as pid ${pidfile}"
+  else
+    echo "${name} is not running"
+  fi
 }
 
 load_rc_config ${name}
