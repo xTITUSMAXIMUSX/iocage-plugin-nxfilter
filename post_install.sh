@@ -10,7 +10,7 @@ NXFILTER_VERSION=$1
 if [ -z "$NXFILTER_VERSION" ]; then
   echo "Checking nxfilter.org for the latest version"
   NXFILTER_VERSION=$(
-    curl -sL 'https://nxfilter.org/p3/download' -H 'X-Requested-With: XMLHttpRequest' | grep -Eo "(http|https)://pub.nxfilter.org/nxfilter-[a-zA-Z0-9./?=_-]*.zip" | grep -Eo "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+" 2>/dev/null
+    curl -sL 'https://nxfilter.org/p3/download' -H 'X-Requested-With: XMLHttpRequest' | grep -Eo "(http|https)://pub.nxfilter.org/nxfilter-[a-zA-Z0-9./?=_-]*.zip" | grep -Eo "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+" | head -1 2>/dev/null
   )
 fi
 NXFILTER_SOFTWARE_URI="https://pub.nxfilter.org/nxfilter-${NXFILTER_VERSION}.zip"
