@@ -13,7 +13,7 @@ if [ -z "$NXFILTER_VERSION" ]; then
     curl -sL 'https://nxfilter.org/p3/download' -H 'X-Requested-With: XMLHttpRequest' | grep -Eo "(http|https)://pub.nxfilter.org/nxfilter-[a-zA-Z0-9./?=_-]*.zip" | grep -Eo "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+" | head -1 2>/dev/null
   )
 fi
-NXFILTER_SOFTWARE_URI="https://pub.nxfilter.org/nxfilter-${NXFILTER_VERSION}.zip"
+NXFILTER_SOFTWARE_URI="http://pub.nxfilter.org/nxfilter-${NXFILTER_VERSION}.zip"
 
 # service script
 SERVICE_SCRIPT_URI="https://raw.githubusercontent.com/xTITUSMAXIMUSX/iocage-plugin-nxfilter/master/nxfilter.sh"
