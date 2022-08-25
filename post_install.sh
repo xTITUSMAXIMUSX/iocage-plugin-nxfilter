@@ -18,6 +18,8 @@ NXFILTER_SOFTWARE_URI="http://pub.nxfilter.org/nxfilter-${NXFILTER_VERSION}.zip"
 # service script
 SERVICE_SCRIPT_URI="https://raw.githubusercontent.com/xTITUSMAXIMUSX/iocage-plugin-nxfilter/master/nxfilter.sh"
 
+# Updater Script
+UPDATER_SCRIPT_URI="https://raw.githubusercontent.com/xTITUSMAXIMUSX/iocage-plugin-nxfilter/master/nxfilter-updater.sh"
 
 # Stop NxFilter if it's already running
 if [ -f /usr/local/etc/rc.d/nxfilter ]; then
@@ -62,6 +64,13 @@ if [ ! -f /etc/rc.conf ] || [ $(grep -c nxfilter_enable /etc/rc.conf) -eq 0 ]; t
   sysrc nxfilter_enable=YES
   echo " ok"
 fi
+
+# Add nxfilter updater script
+/usr/bin/fetch -o /usr/local/bin/ ${UPDATER_SCRIPT_URI}
+chmod +x /usr/local/bin/nxfilter-updater.sh
+
+# Add update instructions to post install notes
+echo "To update NXFilter run 'nxfilter-updater.sh' in the jail shell" > /root/PLUGIN_INFO
 
 echo -n "Starting the NxFilter service..."
 /usr/sbin/service nxfilter start
